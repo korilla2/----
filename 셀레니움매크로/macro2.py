@@ -14,7 +14,8 @@ url = 'https://covid19.kdca.go.kr/'
 driver.get(url)
 
 time.sleep(1)
-driver.maximize_window()
+driver.set_window_position(0, 0)
+driver.set_window_size(1920, 1080)
 
 time.sleep(1)
 WebDriverWait(driver, 6).until(ec.presence_of_element_located(
