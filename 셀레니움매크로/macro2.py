@@ -14,8 +14,9 @@ url = 'https://covid19.kdca.go.kr/'
 driver.get(url)
 
 time.sleep(1)
-driver.set_window_position(0, 0)
-driver.set_window_size(1920, 1080)
+# driver.set_window_position(0, 0)
+# driver.set_window_size(1920, 1080)
+driver.maximize_window()
 
 time.sleep(1)
 WebDriverWait(driver, 6).until(ec.presence_of_element_located(
@@ -24,11 +25,11 @@ driver.switch_to.frame('base')
 
 time.sleep(0.5)
 driver.find_element(By.CSS_SELECTOR,
-                    '#xwup_cert_table > table > tbody > tr > td > div[title="056서경서001"]').click()
+                    '#xwup_cert_table > table > tbody > tr > td > div[title=""]').click()
 
 time.sleep(0.5)
 driver.find_element(By.XPATH,
-                    '//*[@id="xwup_certselect_tek_input1"]').send_keys('rudtj5606!')
+                    '//*[@id="xwup_certselect_tek_input1"]').send_keys('')
 
 time.sleep(0.5)
 driver.find_element(By.XPATH, '//*[@id="xwup_OkButton"]').click()
@@ -80,13 +81,13 @@ def my_function5():
 def my_function():
     try:
         time.sleep(0.5)
-        driver.find_element(By.XPATH, '//*[@id="inspmet2"]').click()
+        driver.find_element(By.CSS_SELECTOR, '#inspmet2').click()
     except:
         return
 
     try:
         time.sleep(0.5)
-        driver.find_element(By.XPATH, '//*[@id="btnSave"]').click()
+        driver.find_element(By.CSS_SELECTOR, '#btnSave').click()
     except:
         return
 
@@ -94,8 +95,8 @@ def my_function():
         time.sleep(0.5)
         WebDriverWait(driver, 6).until(ec.presence_of_element_located(
             (By.CSS_SELECTOR, '#modal_confirm.c-modal.c-modal--alert.c-modal--sizeM.has-button.is-active')))
-        driver.find_element(By.XPATH,
-                            '//*[@id="modal_confirm"]/div[1]/div[2]/button[1]').click()
+        driver.find_element(By.CSS_SELECTOR,
+                            '#modal_confirm > div.c-modal__wrap > div.c-modal__foot.o-cta-wrap > button.cta.cta--modal.c-modal__button.cta--confirm').click()
     except:
         return
 
@@ -103,8 +104,8 @@ def my_function():
         time.sleep(0.5)
         WebDriverWait(driver, 6).until(ec.presence_of_element_located(
             (By.CSS_SELECTOR, '#modal_alert.c-modal.c-modal--alert.c-modal--sizeM.has-button.is-active')))
-        driver.find_element(By.XPATH,
-                            '//*[@id="modal_alert"]/div[1]/div[2]/button').click()
+        driver.find_element(By.CSS_SELECTOR,
+                            '#modal_alert > div.c-modal__wrap > div.c-modal__foot.o-cta-wrap > button').click()
     except:
         return
 
@@ -112,8 +113,8 @@ def my_function():
         time.sleep(0.5)
         WebDriverWait(driver, 6).until(ec.presence_of_element_located(
             (By.CSS_SELECTOR, '#sc-print-label.c-modal.has-button.c-modal--sizeP3.is-active')))
-        driver.find_element(By.XPATH,
-                            '//*[@id="sc-print-label"]/div[1]/div[2]/button[1]').click()
+        driver.find_element(By.CSS_SELECTOR,
+                            '#sc-print-label > div.c-modal__wrap > div.c-modal__foot.o-cta-wrap > button.cta.cta--modal.cta--blue.c-modal__button.cta__btnPrint').click()
     except:
         return
 
@@ -144,7 +145,7 @@ def my_function():
 
     try:
         time.sleep(0.5)
-        driver.find_element(By.XPATH, '//*[@id="btnList"]').click()
+        driver.find_element(By.CSS_SELECTOR, '#btnList').click()
     except:
         return
 
